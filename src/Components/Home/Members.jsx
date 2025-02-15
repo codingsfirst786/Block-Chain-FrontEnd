@@ -11,7 +11,7 @@ const Members = () => {
   useEffect(() => {
     const fetchUSDTData = async () => {
       try {
-        const response = await axios.get('http://localhost:5000/get24hrsUSDT'); // Replace with your actual API URL
+        const response = await axios.get('http://ec2-51-20-86-109.eu-north-1.compute.amazonaws.com/get24hrsUSDT'); // Replace with your actual API URL
         const data = response.data;
 
         setTotalUsers(data.totalUsers);

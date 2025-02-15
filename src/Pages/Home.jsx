@@ -54,7 +54,7 @@ const Home = ({ showBar, setShowBar, user }) => {
         const referralId = result[1].toString();
 
         const referralResponse = await axios.get(
-          `http://localhost:5000/refferal/${referralId}`
+          `http://ec2-51-20-86-109.eu-north-1.compute.amazonaws.com/refferal/${referralId}`
         );
         console.log("Referral Data:", referralResponse.data);
         setReferralData(referralResponse.data);
@@ -72,7 +72,7 @@ const Home = ({ showBar, setShowBar, user }) => {
     const fetchUserData = async () => {
       try {
         const referralResponse = await axios.get(
-          `http://localhost:5000/get24hrsUSDT`
+          `http://ec2-51-20-86-109.eu-north-1.compute.amazonaws.com/get24hrsUSDT`
         );
         setProfit(referralResponse.data.totalUSDTReceivedAllTime);
         setProfit24(referralResponse.data.totalUSDTReceivedLast24Hours);

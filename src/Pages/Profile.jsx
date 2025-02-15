@@ -68,7 +68,7 @@ function Profile({user}) {
 
     try {
       const response = await axios.post(
-        'http://localhost:5000/api/profile',
+        'http://ec2-51-20-86-109.eu-north-1.compute.amazonaws.com/api/profile',
         userData
       );
       console.log('Profile Created:', response?.data.data);

@@ -48,6 +48,8 @@ function App() {
   const { address, isConnected } = useAccount();
   const [user, setUser] = useState(null);
 
+  console.log(user)
+
   useEffect(() => {
     if (isConnected && address) {
       fetchUser(address);
@@ -56,10 +58,10 @@ function App() {
 
   const fetchUser = async (walletAddress) => {
     try {
-      const response = await axios.get(`http://localhost:5000/user/${walletAddress}`);
+      const response = await axios.get(`http://ec2-51-20-86-109.eu-north-1.compute.amazonaws.com/user/${walletAddress}`);
       setUser(response.data.data);
     } catch (err) {
-      setError(err.response?.data?.message || 'Error fetching user data');
+      alert(err.response?.data?.message || 'Error fetching user data');
     }
   };
 

@@ -43,7 +43,7 @@ const Levelx2 = () => {
     const fetchUserData = async () => {
       try {
         const response = await axios.get(
-          `http://localhost:5000/getalldata/${userID}`
+          `http://ec2-51-20-86-109.eu-north-1.compute.amazonaws.com/getalldata/${userID}`
         );
         setUserData(response.data.data); // Set user data
         setReferredUsers(response.data.referredUsers); // Set referred users
