@@ -13,7 +13,6 @@ import { useLocation, useNavigate } from 'react-router-dom';
 import React from 'react';
 import {
   idToAddress,
-  register,
   USDTapprove,
   getTxn,
 } from '../../Config/Contract-Methods';
@@ -57,51 +56,51 @@ const Register = () => {
     setShowSidebar(true);
   };
 
-  const getAddress = async () => {
-    const uplineaddress = await idToAddress(upline);
-    console.log('✅ Wallet Address:', uplineaddress);
+  // const getAddress = async () => {
+  //   const uplineaddress = await idToAddress(upline);
+  //   console.log('✅ Wallet Address:', uplineaddress);
 
-    if (uplineaddress) {
-      try {
-        console.log('hello');
-        const approvetx = await USDTapprove('5000000000000000000');
-        const receipt = await getTxn(approvetx);
-        setReceipt(receipt)
-        if (!receipt) {
-          console.log('Approve failed');
+  //   if (uplineaddress) {
+  //     try {
+  //       console.log('hello');
+  //       const approvetx = await USDTapprove('5000000000000000000');
+  //       const receipt = await getTxn(approvetx);
+  //       setReceipt(receipt)
+  //       if (!receipt) {
+  //         console.log('Approve failed');
 
-          return;
-        }
-        console.log('first');
-        try {
-          console.log('register start');
+  //         return;
+  //       }
+  //       console.log('first');
+  //       try {
+  //         console.log('register start');
 
-          let x = await register(uplineaddress);
-          const registerreceipt = await getTxn(x);
-          if (!registerreceipt) {
-            console.log('registration failed');
-            return;
-          }
-          console.log('register End');
-          console.log(x);
-          console.log('📤 Registering with Address:', x);
-        } catch (err) {
-          console.log(err);
-        }
-        navigate('/home')
-      } catch (err) {
-        console.log(err);
-      }
-    } else {
-      console.log('❌ Address not available!');
-    }
-  };
+  //         let x = await register(uplineaddress);
+  //         const registerreceipt = await getTxn(x);
+  //         if (!registerreceipt) {
+  //           console.log('registration failed');
+  //           return;
+  //         }
+  //         console.log('register End');
+  //         console.log(x);
+  //         console.log('📤 Registering with Address:', x);
+  //       } catch (err) {
+  //         console.log(err);
+  //       }
+  //       navigate('/home')
+  //     } catch (err) {
+  //       console.log(err);
+  //     }
+  //   } else {
+  //     console.log('❌ Address not available!');
+  //   }
+  // };
 
-  const handleClick = async () => {
-    setLoading(true);
-    getAddress();
-    setLoading(false);
-  };
+  // const handleClick = async () => {
+  //   setLoading(true);
+  //   getAddress();
+  //   setLoading(false);
+  // };
 
   const handleConnect = (walletName) => {
     const connector = connectors.find(
@@ -222,7 +221,7 @@ const Register = () => {
                   : 'cursor-pointer'
               }`}
               disabled={!isConnected || loading}
-              onClick={handleClick}
+              // onClick={handleClick}
             >
               {loading ? '...loading' : 'Registration'}
             </button>
