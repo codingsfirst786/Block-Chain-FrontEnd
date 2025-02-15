@@ -25,7 +25,7 @@ const Home = ({ showBar, setShowBar, user }) => {
   const { connectors, connect } = useConnect();
   const { isConnected, address, chain } = useAccount();
   const { switchChain } = useSwitchChain();
-  console.log("user", user);
+  console.log("user", address);
 
   const [Profit, setProfit] = useState("");
   const [Profit24, setProfit24] = useState("");

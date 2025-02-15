@@ -192,7 +192,7 @@ const Levelx2 = () => {
                     <div className='flex justify-between'>
                       <p className='flex gap-1 items-center text-textColor3'>
                         <GoPeople className='text-textColor2' />
-                        {users.length}
+                        {referredUsersCount}
                       </p>
                       <p className='flex gap-1 items-center text-textColor3'>
                         <HiOutlineArrowPath className='text-textColor2' />
